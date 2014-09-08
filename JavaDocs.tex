@@ -1,0 +1,3368 @@
+% Added by DocsPostProcessor:
+\setlength{\parskip}{0.125in}
+% \\ Added by DocsPostProcessor.
+
+% Replaced by DocsPostProcessor:
+% \documentclass[11pt]{report}
+\documentclass[a4paper]{report}
+% \\ Replaced by DocsPostProcessor.
+
+\def\bl{\mbox{}\newline\mbox{}\newline{}}
+
+% Added by DocsPostProcessor:
+\usepackage{amssymb,latexsym,amsmath,amscd,mathtext,ifthen}
+\usepackage[unicode]{hyperref}
+\usepackage{listings}
+\usepackage{literat}
+\usepackage[dvips]{graphicx}
+\usepackage[top = 2.0cm]{geometry}
+\usepackage[T2A]{fontenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\setlength{\skip\footins}{0.5cm}
+\setlength{\footnotesep}{0.5cm}
+% \\ Added by DocsPostProcessor.
+
+\usepackage{ifthen}
+\newcommand{\hide}[2]{
+\ifthenelse{\equal{#1}{inherited}}%
+{}%
+{}%
+}
+\newcommand{\entityintro}[3]{%
+  \hbox to \hsize{%
+    \vbox{%
+      \hbox to .2in{}%
+    }%
+    {\bf #1}%
+    \dotfill\pageref{#2}%
+  }
+  \makebox[\hsize]{%
+    \parbox{.4in}{}%
+    \parbox[l]{5in}{%
+      \vspace{1mm}\it%
+      #3%
+      \vspace{1mm}%
+    }%
+  }%
+}
+\newcommand{\isep}[0]{%
+\setlength{\itemsep}{-.4ex}
+}
+\newcommand{\sld}[0]{%
+\setlength{\topsep}{0em}
+\setlength{\partopsep}{0em}
+\setlength{\parskip}{0em}
+\setlength{\parsep}{-1em}
+}
+\newcommand{\headref}[3]{%
+\ifthenelse{#1 = 1}{%
+\addcontentsline{toc}{section}{\hspace{\qquad}\protect\numberline{}{#3}}%
+}{}%
+\ifthenelse{#1 = 2}{%
+\addcontentsline{toc}{subsection}{\hspace{\qquad}\protect\numerline{}{#3}}%
+}{}%
+\ifthenelse{#1 = 3}{%
+\addcontentsline{toc}{subsubsection}{\hspace{\qquad}\protect\numerline{}{#3}}%
+}{}%
+\label{#3}%
+\makebox[\textwidth][l]{#2 #3}%
+}%
+\newcommand{\membername}[1]{{\it #1}\linebreak}
+\newcommand{\divideents}[1]{\vskip -1em\indent\rule{2in}{.5mm}}
+\newcommand{\refdefined}[1]{
+\expandafter\ifx\csname r@#1\endcsname\relax
+\relax\else
+{$($ in \ref{#1}, page \pageref{#1}$)$}
+\fi}
+\newcommand{\startsection}[4]{
+\gdef\classname{#2}
+\subsection{\label{#3}{\bf {\sc #1} #2}}{
+\rule[1em]{\hsize}{4pt}\vskip -1em
+\vskip .1in 
+#4
+}%
+}
+\newcommand{\startsubsubsection}[2]{
+\subsubsection{\sc #1}{%
+\rule[1em]{\hsize}{2pt}%
+#2}
+}
+\usepackage{color}
+
+% Replaced by DocsPostProcessor:
+% \date{DoNotModifyDateHere}
+\date{Сентябрь --- октябрь, 2014}
+% \\ Replaced by DocsPostProcessor.
+
+
+% Removed by DocsPostProcessor:
+% \pagestyle{myheadings}
+% \\ Removed by DocsPostProcessor.
+
+\addtocontents{toc}{\protect\def\protect\packagename{}}
+\addtocontents{toc}{\protect\def\protect\classname{}}
+\markboth{\protect\packagename -- \protect\classname}{\protect\packagename -- \protect\classname}
+\oddsidemargin 0in
+\evensidemargin 0in
+% \topmargin -.8in
+\chardef\bslash=`\\
+\textheight 9.4in
+\textwidth 6.5in
+
+% Replaced by DocsPostProcessor:
+% \title{DoNotModifyTitleHere}
+\title{
+\includegraphics{images/raic-2013-logo-white-400x150.eps}\\
+\vspace{0.50in}
+\textsc{\Huge CodeHockey 2014}\\
+\vspace{0.50in}
+\textsc{\LARGE Правила}\\
+\textsc{\small Версия 1.0}\\
+\vspace{2.75in}
+\includegraphics{images/mail-ru-and-ssu-logo.eps}
+}
+% \\ Replaced by DocsPostProcessor.
+
+\begin{document}
+\maketitle
+\sloppy
+\raggedright
+\tableofcontents
+
+% Added by DocsPostProcessor:
+\markboth{qqq}{{\footnotesize CodeHockey 2014}}
+\input Tutorial.tex
+\raggedright
+\sloppy
+% \\ Added by DocsPostProcessor.
+
+\gdef\packagename{}
+\gdef\classname{}
+\newpage
+\def\packagename{model}
+\chapter{\bf Package model}{
+\vskip -.25in
+\hbox to \hsize{\it Package Contents\hfil Page}
+\rule{\hsize}{.7mm}
+\vskip .13in
+\hbox{\bf Classes}
+\entityintro{ActionType}{l0}{Возможные действия хоккеиста.}
+\entityintro{Game}{l1}{Предоставляет доступ к различным игровым константам.}
+\entityintro{Hockeyist}{l2}{Класс, определяющий хоккеиста.}
+\entityintro{HockeyistState}{l3}{Состояние хоккеиста.}
+\entityintro{HockeyistType}{l4}{Тип хоккеиста.}
+\entityintro{Move}{l5}{Стратегия игрока может управлять хоккеистом посредством установки свойств объекта данного класса.}
+\entityintro{Player}{l6}{Содержит данные о текущем состоянии игрока.}
+\entityintro{Puck}{l7}{Класс, определяющий хоккейную шайбу.}
+\entityintro{Unit}{l8}{Базовый класс для определения объектов (\textless \textless юнитов\textgreater \textgreater ) на игровом поле.}
+\entityintro{World}{l9}{Этот класс описывает игровой мир.}
+\vskip .1in
+\rule{\hsize}{.7mm}
+\vskip .1in
+\newpage
+\section{Classes}{
+\startsection{Class}{ActionType}{l0}{%
+{\small Возможные действия хоккеиста.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Хоккеист может совершить действие, если он не сбит с ног ({\tt HockeyistState.KNOCKED\_DOWN}),
+ не отдыхает ({\tt HockeyistState.RESTING}) и уже восстановился после своего предыдущего действия
+ (значение {\tt hockeyist.remainingCooldownTicks} равно {\tt 0}).
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Если хоккеист замахивается клюшкой ({\tt HockeyistState.SWINGING}), то из действий ему доступны только
+ {\tt ActionType.STRIKE} и {\tt ActionType.CANCEL\_STRIKE}.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+ActionType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final ActionType NONE\begin{itemize}\item{\vskip -.9ex Ничего не делать.}\end{itemize}
+}
+\item{
+public static final ActionType TAKE\_PUCK\begin{itemize}\item{\vskip -.9ex Взять шайбу.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Если хоккеист уже контролирует шайбу, либо шайба находится вне зоны досягаемости клюшки хоккеиста (смотрите
+ документацию к значениям {\tt game.stickLength} и {\tt game.stickSector}), то действие игнорируется.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ В противном случае хоккеист попытается установить контроль над шайбой и, с определённой вероятностью,
+ это сделает ((смотрите документацию к {\tt game.pickUpPuckBaseChance} и {\tt game.takePuckAwayBaseChance})).}\end{itemize}
+}
+\item{
+public static final ActionType SWING\begin{itemize}\item{\vskip -.9ex Замахнуться для удара.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Хоккеист замахивается для увеличения силы удара. Чем больше тиков пройдёт с момента начала замаха до удара,
+ тем большее воздействие будет на попавшие под удар объекты. Максимальное количество учитываемых тиков ограничено
+ значением {\tt game.maxEffectiveSwingTicks}.}\end{itemize}
+}
+\item{
+public static final ActionType STRIKE\begin{itemize}\item{\vskip -.9ex Ударить.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Хоккеист наносит размашистый удар по всем объектам, находящимся в зоне досягаемости его клюшки. Удар может быть
+ совершён как с предварительным замахом ({\tt SWING}), так и без него (в этом случае сила удара будет меньше).
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Объекты (шайба и хоккеисты, кроме вратарей), попавшие под удар, приобретут некоторый импульс в направлении,
+ совпадающим с направлением удара. При ударе по хоккеисту есть также некоторый шанс сбить его с ног.}\end{itemize}
+}
+\item{
+public static final ActionType CANCEL\_STRIKE\begin{itemize}\item{\vskip -.9ex Отменить удар.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Хоккеист выходит из состояния замаха ({\tt SWING}), не совершая удар. Это позволяет
+ сэкономить немного выносливости, а также быстрее совершить новое действие
+ (смотрите документацию к {\tt game.cancelStrikeActionCooldownTicks}).
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Если хоккеист не совершает замах клюшкой, то действие игнорируется.}\end{itemize}
+}
+\item{
+public static final ActionType PASS\begin{itemize}\item{\vskip -.9ex Отдать пас.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Хоккеист пытается передать контролируемую им шайбу другому хоккеисту. Для этого необходимо указать относительную
+ силу паса ({\tt move.passPower}) и его направление ({\tt move.passAngle}). В противном случае пас будет отдан
+ в направлении, соответствующем направлению хоккеиста, с максимально возможной силой.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Если хоккеист не контролирует шайбу, то действие игнорируется.}\end{itemize}
+}
+\item{
+public static final ActionType SUBSTITUTE\begin{itemize}\item{\vskip -.9ex Заменить активного хоккеиста сидящим на скамейке запасных.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Замена выполняется только на своей половине поля, при этом расстояние от центра хоккеиста до верхней границы
+ игровой площадки не должно превышать {\tt game.substitutionAreaHeight}. Дополнительно нужно указать индекс
+ хоккеиста ({\tt move.teammateIndex}), на которого будет произведена замена.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Если указан некорректный индекс, или скорость хоккеиста превышает {\tt game.maxSpeedToAllowSubstitute},
+ то действие будет проигнорировано.}\end{itemize}
+}
+\end{itemize}
+}
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static ActionType {\bf valueOf}( {\tt String } {\bf name} )
+\label{l10}\label{l11}}%end signature
+}%end item
+\divideents{values}
+\item{\vskip -1.9ex 
+\membername{values}
+{\tt public static ActionType[] {\bf values}(  )
+\label{l12}\label{l13}}%end signature
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l14}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Game}{l1}{%
+{\small Предоставляет доступ к различным игровым константам.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Game}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Game}
+% {\tt public {\bf Game}( {\tt long } {\bf randomSeed},
+% {\tt int } {\bf tickCount},
+% {\tt double } {\bf worldWidth},
+% {\tt double } {\bf worldHeight},
+% {\tt double } {\bf goalNetTop},
+% {\tt double } {\bf goalNetWidth},
+% {\tt double } {\bf goalNetHeight},
+% {\tt double } {\bf rinkTop},
+% {\tt double } {\bf rinkLeft},
+% {\tt double } {\bf rinkBottom},
+% {\tt double } {\bf rinkRight},
+% {\tt int } {\bf afterGoalStateTickCount},
+% {\tt int } {\bf overtimeTickCount},
+% {\tt int } {\bf defaultActionCooldownTicks},
+% {\tt int } {\bf swingActionCooldownTicks},
+% {\tt int } {\bf cancelStrikeActionCooldownTicks},
+% {\tt int } {\bf actionCooldownTicksAfterLosingPuck},
+% {\tt double } {\bf stickLength},
+% {\tt double } {\bf stickSector},
+% {\tt double } {\bf passSector},
+% {\tt int } {\bf hockeyistAttributeBaseValue},
+% {\tt double } {\bf minActionChance},
+% {\tt double } {\bf maxActionChance},
+% {\tt double } {\bf strikeAngleDeviation},
+% {\tt double } {\bf passAngleDeviation},
+% {\tt double } {\bf pickUpPuckBaseChance},
+% {\tt double } {\bf takePuckAwayBaseChance},
+% {\tt int } {\bf maxEffectiveSwingTicks},
+% {\tt double } {\bf strikePowerBaseFactor},
+% {\tt double } {\bf strikePowerGrowthFactor},
+% {\tt double } {\bf strikePuckBaseChance},
+% {\tt double } {\bf knockdownChanceFactor},
+% {\tt double } {\bf knockdownTicksFactor},
+% {\tt double } {\bf maxSpeedToAllowSubstitute},
+% {\tt double } {\bf substitutionAreaHeight},
+% {\tt double } {\bf passPowerFactor},
+% {\tt double } {\bf hockeyistMaxStamina},
+% {\tt double } {\bf activeHockeyistStaminaGrowthPerTick},
+% {\tt double } {\bf restingHockeyistStaminaGrowthPerTick},
+% {\tt double } {\bf zeroStaminaHockeyistEffectivenessFactor},
+% {\tt double } {\bf speedUpStaminaCostFactor},
+% {\tt double } {\bf turnStaminaCostFactor},
+% {\tt double } {\bf takePuckStaminaCost},
+% {\tt double } {\bf swingStaminaCost},
+% {\tt double } {\bf strikeStaminaBaseCost},
+% {\tt double } {\bf strikeStaminaCostGrowthFactor},
+% {\tt double } {\bf cancelStrikeStaminaCost},
+% {\tt double } {\bf passStaminaCost},
+% {\tt double } {\bf goalieMaxSpeed},
+% {\tt double } {\bf hockeyistMaxSpeed},
+% {\tt double } {\bf struckHockeyistInitialSpeedFactor},
+% {\tt double } {\bf hockeyistSpeedUpFactor},
+% {\tt double } {\bf hockeyistSpeedDownFactor},
+% {\tt double } {\bf hockeyistTurnAngleFactor},
+% {\tt int } {\bf versatileHockeyistStrength},
+% {\tt int } {\bf versatileHockeyistEndurance},
+% {\tt int } {\bf versatileHockeyistDexterity},
+% {\tt int } {\bf versatileHockeyistAgility},
+% {\tt int } {\bf forwardHockeyistStrength},
+% {\tt int } {\bf forwardHockeyistEndurance},
+% {\tt int } {\bf forwardHockeyistDexterity},
+% {\tt int } {\bf forwardHockeyistAgility},
+% {\tt int } {\bf defencemanHockeyistStrength},
+% {\tt int } {\bf defencemanHockeyistEndurance},
+% {\tt int } {\bf defencemanHockeyistDexterity},
+% {\tt int } {\bf defencemanHockeyistAgility},
+% {\tt int } {\bf minRandomHockeyistParameter},
+% {\tt int } {\bf maxRandomHockeyistParameter},
+% {\tt double } {\bf struckPuckInitialSpeedFactor},
+% {\tt double } {\bf puckBindingRange} )
+% \label{l15}\label{l16}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getActionCooldownTicksAfterLosingPuck}
+{\tt public int {\bf getActionCooldownTicksAfterLosingPuck}(  )
+\label{l17}\label{l18}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность задержки, применяемой к хоккеисту
+         в случае потери шайбы вследствие воздействия других хоккеистов.
+         В течение этого времени хоккеист не может совершать действия. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getActiveHockeyistStaminaGrowthPerTick}
+\item{\vskip -1.9ex 
+\membername{getActiveHockeyistStaminaGrowthPerTick}
+{\tt public double {\bf getActiveHockeyistStaminaGrowthPerTick}(  )
+\label{l19}\label{l20}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение, на которое увеличивается выносливость хоккеиста за каждый тик в состоянии
+         {\tt HockeyistType.ACTIVE}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAfterGoalStateTickCount}
+\item{\vskip -1.9ex 
+\membername{getAfterGoalStateTickCount}
+{\tt public int {\bf getAfterGoalStateTickCount}(  )
+\label{l21}\label{l22}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность состояния вне игры после гола.
+         В течение этого времени новые забитые голы игнорируются,
+         а действия не требуют затрат выносливости. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getCancelStrikeActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getCancelStrikeActionCooldownTicks}
+{\tt public int {\bf getCancelStrikeActionCooldownTicks}(  )
+\label{l23}\label{l24}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность задержки, применяемой к хоккеисту
+         после отмены им удара ({\tt ActionType.CANCEL\_STRIKE}).
+         В течение этого времени хоккеист не может совершать новые действия. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getCancelStrikeStaminaCost}
+\item{\vskip -1.9ex 
+\membername{getCancelStrikeStaminaCost}
+{\tt public double {\bf getCancelStrikeStaminaCost}(  )
+\label{l25}\label{l26}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество выносливости, которое необходимо затратить на совершение действия
+         {\tt ActionType.CANCEL\_STRIKE}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDefaultActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getDefaultActionCooldownTicks}
+{\tt public int {\bf getDefaultActionCooldownTicks}(  )
+\label{l27}\label{l28}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность задержки, применяемой к хоккеисту
+         после совершения им большинства действий ({\tt move.action}).
+         В течение этого времени хоккеист не может совершать новые действия. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDefencemanHockeyistAgility}
+\item{\vskip -1.9ex 
+\membername{getDefencemanHockeyistAgility}
+{\tt public int {\bf getDefencemanHockeyistAgility}(  )
+\label{l29}\label{l30}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута подвижность для защитника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDefencemanHockeyistDexterity}
+\item{\vskip -1.9ex 
+\membername{getDefencemanHockeyistDexterity}
+{\tt public int {\bf getDefencemanHockeyistDexterity}(  )
+\label{l31}\label{l32}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута ловкость для защитника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDefencemanHockeyistEndurance}
+\item{\vskip -1.9ex 
+\membername{getDefencemanHockeyistEndurance}
+{\tt public int {\bf getDefencemanHockeyistEndurance}(  )
+\label{l33}\label{l34}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута стойкость для защитника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDefencemanHockeyistStrength}
+\item{\vskip -1.9ex 
+\membername{getDefencemanHockeyistStrength}
+{\tt public int {\bf getDefencemanHockeyistStrength}(  )
+\label{l35}\label{l36}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута сила для защитника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getForwardHockeyistAgility}
+\item{\vskip -1.9ex 
+\membername{getForwardHockeyistAgility}
+{\tt public int {\bf getForwardHockeyistAgility}(  )
+\label{l37}\label{l38}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута подвижность для нападающего. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getForwardHockeyistDexterity}
+\item{\vskip -1.9ex 
+\membername{getForwardHockeyistDexterity}
+{\tt public int {\bf getForwardHockeyistDexterity}(  )
+\label{l39}\label{l40}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута ловкость для нападающего. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getForwardHockeyistEndurance}
+\item{\vskip -1.9ex 
+\membername{getForwardHockeyistEndurance}
+{\tt public int {\bf getForwardHockeyistEndurance}(  )
+\label{l41}\label{l42}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута стойкость для нападающего. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getForwardHockeyistStrength}
+\item{\vskip -1.9ex 
+\membername{getForwardHockeyistStrength}
+{\tt public int {\bf getForwardHockeyistStrength}(  )
+\label{l43}\label{l44}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута сила для нападающего. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGoalieMaxSpeed}
+\item{\vskip -1.9ex 
+\membername{getGoalieMaxSpeed}
+{\tt public double {\bf getGoalieMaxSpeed}(  )
+\label{l45}\label{l46}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальную скорость перемещения вратаря. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGoalNetHeight}
+\item{\vskip -1.9ex 
+\membername{getGoalNetHeight}
+{\tt public double {\bf getGoalNetHeight}(  )
+\label{l47}\label{l48}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает высоту ворот. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGoalNetTop}
+\item{\vskip -1.9ex 
+\membername{getGoalNetTop}
+{\tt public double {\bf getGoalNetTop}(  )
+\label{l49}\label{l50}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ординату верхней штанги ворот. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGoalNetWidth}
+\item{\vskip -1.9ex 
+\membername{getGoalNetWidth}
+{\tt public double {\bf getGoalNetWidth}(  )
+\label{l51}\label{l52}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ширину ворот. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHockeyistAttributeBaseValue}
+\item{\vskip -1.9ex 
+\membername{getHockeyistAttributeBaseValue}
+{\tt public int {\bf getHockeyistAttributeBaseValue}(  )
+\label{l53}\label{l54}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовое значение атрибута хоккеиста.
+         Данная величина используется как коэффициент в различных игровых формулах. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHockeyistMaxSpeed}
+\item{\vskip -1.9ex 
+\membername{getHockeyistMaxSpeed}
+{\tt public double {\bf getHockeyistMaxSpeed}(  )
+\label{l55}\label{l56}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальную скорость перемещения полевого хоккеиста. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHockeyistMaxStamina}
+\item{\vskip -1.9ex 
+\membername{getHockeyistMaxStamina}
+{\tt public double {\bf getHockeyistMaxStamina}(  )
+\label{l57}\label{l58}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное значение выносливости хоккеиста. Выносливость тратится на перемещение
+         и совершение хоккеистом различных действий. Каждый тик может восстановиться небольшое количество
+         выносливости в зависимости от состояния хоккеиста ({\tt hockeyist.state}). По мере расходования
+         выносливости все атрибуты (соответственно, и эффективность всех действий) хоккеиста равномерно
+         уменьшаются и достигают значения {\tt zeroStaminaHockeyistEffectivenessFactor} (от начальных
+         показателей) при падении выносливости до нуля. Хоккеист не восстанавливает выносливость в состояниях
+         {\tt HockeyistState.SWINGING} и {\tt HockeyistState.KNOCKED\_DOWN}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHockeyistSpeedDownFactor}
+\item{\vskip -1.9ex 
+\membername{getHockeyistSpeedDownFactor}
+{\tt public double {\bf getHockeyistSpeedDownFactor}(  )
+\label{l59}\label{l60}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает модуль ускорения, приобретаемого хоккеистом, при {\tt move.speedUp} равном -1.0,
+         базовом значении атрибута подвижность и максимальном запасе выносливости.
+         Направление ускорения противоположно направлению хоккеиста.
+         В игре отсутствует специальное ограничение на максимальную скорость хоккеиста, однако все
+         игровые объекты подвержены воздействию силы трения, которая уменьшает модуль их скорости каждый тик.
+         Чем больше скорость, тем на большую величину она уменьшается. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHockeyistSpeedUpFactor}
+\item{\vskip -1.9ex 
+\membername{getHockeyistSpeedUpFactor}
+{\tt public double {\bf getHockeyistSpeedUpFactor}(  )
+\label{l61}\label{l62}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает модуль ускорения, приобретаемого хоккеистом, при {\tt move.speedUp} равном 1.0,
+         базовом значении атрибута подвижность и максимальном запасе выносливости.
+         Направление ускорения совпадает с направлением хоккеиста.
+         В игре отсутствует специальное ограничение на максимальную скорость хоккеиста, однако все
+         игровые объекты подвержены воздействию силы трения, которая уменьшает модуль их скорости каждый тик.
+         Чем больше скорость, тем на большую величину она уменьшается. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHockeyistTurnAngleFactor}
+\item{\vskip -1.9ex 
+\membername{getHockeyistTurnAngleFactor}
+{\tt public double {\bf getHockeyistTurnAngleFactor}(  )
+\label{l63}\label{l64}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальный модуль угла поворота хоккеиста за тик при базовом значении атрибута подвижность
+         и максимальном запасе выносливости. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getKnockdownChanceFactor}
+\item{\vskip -1.9ex 
+\membername{getKnockdownChanceFactor}
+{\tt public double {\bf getKnockdownChanceFactor}(  )
+\label{l65}\label{l66}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает шанс ударом ({\tt ActionType.STRIKE}) сбить с ног другого хоккеиста при максимальной
+         длительности замаха. Среднее значение атрибутов сила и ловкость хоккеиста, совершающего удар,
+         увеличивает шанс сбить с ног. Значение атрибута стойкость атакуемого хоккеиста уменьшает шанс на падение. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getKnockdownTicksFactor}
+\item{\vskip -1.9ex 
+\membername{getKnockdownTicksFactor}
+{\tt public double {\bf getKnockdownTicksFactor}(  )
+\label{l67}\label{l68}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество тиков, по прошествии которого хоккеист восстановится после падения при базовом
+         значении атрибута подвижность. Чем выше подвижность, тем быстрее восстановление. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxActionChance}
+\item{\vskip -1.9ex 
+\membername{getMaxActionChance}
+{\tt public double {\bf getMaxActionChance}(  )
+\label{l69}\label{l70}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальный шанс на совершение любого вероятностного действия. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxEffectiveSwingTicks}
+\item{\vskip -1.9ex 
+\membername{getMaxEffectiveSwingTicks}
+{\tt public int {\bf getMaxEffectiveSwingTicks}(  )
+\label{l71}\label{l72}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность замаха, после достижения которой сила удара не увеличивается. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxRandomHockeyistParameter}
+\item{\vskip -1.9ex 
+\membername{getMaxRandomHockeyistParameter}
+{\tt public int {\bf getMaxRandomHockeyistParameter}(  )
+\label{l73}\label{l74}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимально возможное значение любого атрибута для хоккеиста со случайными параметрами. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxSpeedToAllowSubstitute}
+\item{\vskip -1.9ex 
+\membername{getMaxSpeedToAllowSubstitute}
+{\tt public double {\bf getMaxSpeedToAllowSubstitute}(  )
+\label{l75}\label{l76}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальную допустимую скорость для выполнения замены хоккеиста. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinActionChance}
+\item{\vskip -1.9ex 
+\membername{getMinActionChance}
+{\tt public double {\bf getMinActionChance}(  )
+\label{l77}\label{l78}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимальный шанс на совершение любого вероятностного действия. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinRandomHockeyistParameter}
+\item{\vskip -1.9ex 
+\membername{getMinRandomHockeyistParameter}
+{\tt public int {\bf getMinRandomHockeyistParameter}(  )
+\label{l79}\label{l80}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможное значение любого атрибута для хоккеиста со случайными параметрами. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOvertimeTickCount}
+\item{\vskip -1.9ex 
+\membername{getOvertimeTickCount}
+{\tt public int {\bf getOvertimeTickCount}(  )
+\label{l81}\label{l82}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность дополнительного времени.
+         Дополнительное время наступает в случае ничейного счёта на момент окончания основного времени.
+         Если за основное время не было забито ни одного гола, вратари обоих игроков убираются с поля. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPassAngleDeviation}
+\item{\vskip -1.9ex 
+\membername{getPassAngleDeviation}
+{\tt public double {\bf getPassAngleDeviation}(  )
+\label{l83}\label{l84}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает стандартное отклонение распределения Гаусса для угла паса ({\tt ActionType.PASS})
+         хоккеиста при базовом значении атрибута ловкость. Чем выше ловкость конкретного хоккеиста,
+         тем точнее его пас. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPassPowerFactor}
+\item{\vskip -1.9ex 
+\membername{getPassPowerFactor}
+{\tt public double {\bf getPassPowerFactor}(  )
+\label{l85}\label{l86}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент силы паса. Умножается на устанавливаемое стратегией в интервале
+         [{\tt 0.0}, {\tt 1.0}] значение силы паса ({\tt move.passPower}). 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPassSector}
+\item{\vskip -1.9ex 
+\membername{getPassSector}
+{\tt public double {\bf getPassSector}(  )
+\label{l87}\label{l88}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает сектор, ограничивающий направление паса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPassStaminaCost}
+\item{\vskip -1.9ex 
+\membername{getPassStaminaCost}
+{\tt public double {\bf getPassStaminaCost}(  )
+\label{l89}\label{l90}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество выносливости, которое необходимо затратить на совершение действия
+         {\tt ActionType.PASS}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPickUpPuckBaseChance}
+\item{\vskip -1.9ex 
+\membername{getPickUpPuckBaseChance}
+{\tt public double {\bf getPickUpPuckBaseChance}(  )
+\label{l91}\label{l92}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовый шанс подобрать шайбу, не контролируемую другим хоккеистом.
+         Максимальный из атрибутов ловкость и подвижность хоккеиста увеличивает шанс на захват.
+         Скорость шайбы уменьшает шанс на захват. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPuckBindingRange}
+\item{\vskip -1.9ex 
+\membername{getPuckBindingRange}
+{\tt public double {\bf getPuckBindingRange}(  )
+\label{l93}\label{l94}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает расстояние от центра хоккеиста, контролирующего шайбу, до центра шайбы. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRandomSeed}
+\item{\vskip -1.9ex 
+\membername{getRandomSeed}
+{\tt public long {\bf getRandomSeed}(  )
+\label{l95}\label{l96}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает некоторое число, которое ваша стратегия может использовать для инициализации генератора
+         случайных чисел. Данное значение имеет рекомендательный характер, однако позволит более точно
+         воспроизводить прошедшие игры. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRestingHockeyistStaminaGrowthPerTick}
+\item{\vskip -1.9ex 
+\membername{getRestingHockeyistStaminaGrowthPerTick}
+{\tt public double {\bf getRestingHockeyistStaminaGrowthPerTick}(  )
+\label{l97}\label{l98}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение, на которое увеличивается выносливость хоккеиста за каждый тик в состоянии
+         {\tt HockeyistType.RESTING}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRinkBottom}
+\item{\vskip -1.9ex 
+\membername{getRinkBottom}
+{\tt public double {\bf getRinkBottom}(  )
+\label{l99}\label{l100}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ординату нижней границы игрового поля. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRinkLeft}
+\item{\vskip -1.9ex 
+\membername{getRinkLeft}
+{\tt public double {\bf getRinkLeft}(  )
+\label{l101}\label{l102}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсциссу левой границы игрового поля. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRinkRight}
+\item{\vskip -1.9ex 
+\membername{getRinkRight}
+{\tt public double {\bf getRinkRight}(  )
+\label{l103}\label{l104}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсциссу правой границы игрового поля. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRinkTop}
+\item{\vskip -1.9ex 
+\membername{getRinkTop}
+{\tt public double {\bf getRinkTop}(  )
+\label{l105}\label{l106}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ординату верхней границы игрового поля. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedUpStaminaCostFactor}
+\item{\vskip -1.9ex 
+\membername{getSpeedUpStaminaCostFactor}
+{\tt public double {\bf getSpeedUpStaminaCostFactor}(  )
+\label{l107}\label{l108}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество выносливости, которое необходимо затратить на максимальное по модулю
+         ускорение$/$замедление хоккеиста ({\tt move.speedUp}) за 1 тик. Для меньших значений ускорения затраты
+         выносливости пропорционально падают. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStickLength}
+\item{\vskip -1.9ex 
+\membername{getStickLength}
+{\tt public double {\bf getStickLength}(  )
+\label{l109}\label{l110}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длину клюшки хоккеиста. Хоккеист может воздействовать на игровой объект,
+         если и только если расстояние от центра хоккеиста до центра объекта не превышает эту величину. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStickSector}
+\item{\vskip -1.9ex 
+\membername{getStickSector}
+{\tt public double {\bf getStickSector}(  )
+\label{l111}\label{l112}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает сектор клюшки хоккеиста. Хоккеист может воздействовать на игровой объект,
+         если и только если угол между направлением хоккеиста и вектором из центра хоккеиста в центр объекта
+         не превышает половину этой величины. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrikeAngleDeviation}
+\item{\vskip -1.9ex 
+\membername{getStrikeAngleDeviation}
+{\tt public double {\bf getStrikeAngleDeviation}(  )
+\label{l113}\label{l114}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает стандартное отклонение распределения Гаусса для угла удара ({\tt ActionType.STRIKE})
+         хоккеиста при базовом значении атрибута ловкость. Чем выше ловкость конкретного хоккеиста,
+         тем точнее его удар. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrikePowerBaseFactor}
+\item{\vskip -1.9ex 
+\membername{getStrikePowerBaseFactor}
+{\tt public double {\bf getStrikePowerBaseFactor}(  )
+\label{l115}\label{l116}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент силы удара без замаха. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrikePowerGrowthFactor}
+\item{\vskip -1.9ex 
+\membername{getStrikePowerGrowthFactor}
+{\tt public double {\bf getStrikePowerGrowthFactor}(  )
+\label{l117}\label{l118}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает увеличение коэффициента силы удара за каждый тик замаха.
+         Максимальное количество учитываемых тиков ограничено значением {\tt maxEffectiveSwingTicks}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrikePuckBaseChance}
+\item{\vskip -1.9ex 
+\membername{getStrikePuckBaseChance}
+{\tt public double {\bf getStrikePuckBaseChance}(  )
+\label{l119}\label{l120}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовый шанс ударить шайбу. Базовый шанс не зависит от того,
+         контролирует шайбу другой хоккеист или нет, однако на результирующий шанс удара
+         по свободной и контролируемой шайбе влияют разные атрибуты хоккеиста
+         (смотрите документацию к {\tt pickUpPuckBaseChance} и {\tt takePuckAwayBaseChance}).
+         Если хоккеист, совершающий удар, контролирует шайбу, то вероятность удара всегда будет 100\%. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrikeStaminaBaseCost}
+\item{\vskip -1.9ex 
+\membername{getStrikeStaminaBaseCost}
+{\tt public double {\bf getStrikeStaminaBaseCost}(  )
+\label{l121}\label{l122}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовое количество выносливости, которое необходимо затратить на совершение действия
+         {\tt ActionType.STRIKE}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrikeStaminaCostGrowthFactor}
+\item{\vskip -1.9ex 
+\membername{getStrikeStaminaCostGrowthFactor}
+{\tt public double {\bf getStrikeStaminaCostGrowthFactor}(  )
+\label{l123}\label{l124}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает увеличение затрат выносливости на удар ({\tt ActionType.STRIKE}) за каждый тик замаха.
+         Максимальное количество учитываемых тиков ограничено значением {\tt maxEffectiveSwingTicks}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStruckHockeyistInitialSpeedFactor}
+\item{\vskip -1.9ex 
+\membername{getStruckHockeyistInitialSpeedFactor}
+{\tt public double {\bf getStruckHockeyistInitialSpeedFactor}(  )
+\label{l125}\label{l126}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает модуль скорости, добавляемой хоккеисту, попавшему под удар силы 1.0. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStruckPuckInitialSpeedFactor}
+\item{\vskip -1.9ex 
+\membername{getStruckPuckInitialSpeedFactor}
+{\tt public double {\bf getStruckPuckInitialSpeedFactor}(  )
+\label{l127}\label{l128}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает модуль скорости, устанавливаемой шайбе, попавшей под удар силы 1.0. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSubstitutionAreaHeight}
+\item{\vskip -1.9ex 
+\membername{getSubstitutionAreaHeight}
+{\tt public double {\bf getSubstitutionAreaHeight}(  )
+\label{l129}\label{l130}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает высоту зоны, в которой может быть выполнена замена хоккеиста. Зона расположена вдоль верхней
+         границы игровой площадки. Замена может быть выполнена только на своей половине поля. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSwingActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getSwingActionCooldownTicks}
+{\tt public int {\bf getSwingActionCooldownTicks}(  )
+\label{l131}\label{l132}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность задержки, применяемой к хоккеисту
+         после совершения им действия замах ({\tt ActionType.SWING}).
+         В течение этого времени хоккеист не может совершать новые действия. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSwingStaminaCost}
+\item{\vskip -1.9ex 
+\membername{getSwingStaminaCost}
+{\tt public double {\bf getSwingStaminaCost}(  )
+\label{l133}\label{l134}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество выносливости, которое необходимо затратить на совершение действия
+         {\tt ActionType.SWING}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTakePuckAwayBaseChance}
+\item{\vskip -1.9ex 
+\membername{getTakePuckAwayBaseChance}
+{\tt public double {\bf getTakePuckAwayBaseChance}(  )
+\label{l135}\label{l136}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовый шанс отнять шайбу у другого хоккеиста.
+         Максимальный из атрибутов сила и ловкость хоккеиста, отнимающего шайбу, увеличивает шанс на захват.
+         Максимальный из атрибутов стойкость и подвижность текущего владельца шайбы уменьшает шанс на её потерю. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTakePuckStaminaCost}
+\item{\vskip -1.9ex 
+\membername{getTakePuckStaminaCost}
+{\tt public double {\bf getTakePuckStaminaCost}(  )
+\label{l137}\label{l138}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество выносливости, которое необходимо затратить на совершение действия
+         {\tt ActionType.TAKE\_PUCK}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTickCount}
+\item{\vskip -1.9ex 
+\membername{getTickCount}
+{\tt public int {\bf getTickCount}(  )
+\label{l139}\label{l140}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность игры в тиках. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTurnStaminaCostFactor}
+\item{\vskip -1.9ex 
+\membername{getTurnStaminaCostFactor}
+{\tt public double {\bf getTurnStaminaCostFactor}(  )
+\label{l141}\label{l142}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество выносливости, которое необходимо затратить на максимальный по модулю
+         угол поворота хоккеиста ({\tt move.turn}) за 1 тик. Для меньших значений угла поворота затраты
+         выносливости пропорционально падают. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVersatileHockeyistAgility}
+\item{\vskip -1.9ex 
+\membername{getVersatileHockeyistAgility}
+{\tt public int {\bf getVersatileHockeyistAgility}(  )
+\label{l143}\label{l144}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута подвижность для хоккеиста-универсала. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVersatileHockeyistDexterity}
+\item{\vskip -1.9ex 
+\membername{getVersatileHockeyistDexterity}
+{\tt public int {\bf getVersatileHockeyistDexterity}(  )
+\label{l145}\label{l146}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута ловкость для хоккеиста-универсала. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVersatileHockeyistEndurance}
+\item{\vskip -1.9ex 
+\membername{getVersatileHockeyistEndurance}
+{\tt public int {\bf getVersatileHockeyistEndurance}(  )
+\label{l147}\label{l148}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута стойкость для хоккеиста-универсала. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVersatileHockeyistStrength}
+\item{\vskip -1.9ex 
+\membername{getVersatileHockeyistStrength}
+{\tt public int {\bf getVersatileHockeyistStrength}(  )
+\label{l149}\label{l150}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута сила для хоккеиста-универсала. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWorldHeight}
+\item{\vskip -1.9ex 
+\membername{getWorldHeight}
+{\tt public double {\bf getWorldHeight}(  )
+\label{l151}\label{l152}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает высоту игрового мира. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWorldWidth}
+\item{\vskip -1.9ex 
+\membername{getWorldWidth}
+{\tt public double {\bf getWorldWidth}(  )
+\label{l153}\label{l154}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ширину игрового мира. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getZeroStaminaHockeyistEffectivenessFactor}
+\item{\vskip -1.9ex 
+\membername{getZeroStaminaHockeyistEffectivenessFactor}
+{\tt public double {\bf getZeroStaminaHockeyistEffectivenessFactor}(  )
+\label{l155}\label{l156}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент эффективности действий хоккеиста при падении его выносливости до нуля. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Hockeyist}{l2}{%
+{\small Класс, определяющий хоккеиста. Содержит также все свойства юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Hockeyist}}
+\noindent\hbox{\vbox{{\bf extends} Unit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Hockeyist}
+% {\tt public {\bf Hockeyist}( {\tt long } {\bf id},
+% {\tt long } {\bf playerId},
+% {\tt int } {\bf teammateIndex},
+% {\tt double } {\bf mass},
+% {\tt double } {\bf radius},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt double } {\bf angularSpeed},
+% {\tt boolean } {\bf teammate},
+% {\tt HockeyistType } {\bf type},
+% {\tt int } {\bf strength},
+% {\tt int } {\bf endurance},
+% {\tt int } {\bf dexterity},
+% {\tt int } {\bf agility},
+% {\tt double } {\bf stamina},
+% {\tt HockeyistState } {\bf state},
+% {\tt int } {\bf originalPositionIndex},
+% {\tt int } {\bf remainingKnockdownTicks},
+% {\tt int } {\bf remainingCooldownTicks},
+% {\tt int } {\bf swingTicks},
+% {\tt ActionType } {\bf lastAction},
+% {\tt Integer } {\bf lastActionTick} )
+% \label{l157}\label{l158}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAgility}
+{\tt public int {\bf getAgility}(  )
+\label{l159}\label{l160}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута подвижность. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDexterity}
+\item{\vskip -1.9ex 
+\membername{getDexterity}
+{\tt public int {\bf getDexterity}(  )
+\label{l161}\label{l162}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута ловкость. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getEndurance}
+\item{\vskip -1.9ex 
+\membername{getEndurance}
+{\tt public int {\bf getEndurance}(  )
+\label{l163}\label{l164}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута стойкость. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getLastAction}
+\item{\vskip -1.9ex 
+\membername{getLastAction}
+{\tt public ActionType {\bf getLastAction}(  )
+\label{l165}\label{l166}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает последнее действие ({\tt move.action}), совершённое хоккеистом, или {\tt null}
+         ({\tt UNKNOWN\_ACTION} в пакетах некоторых языков) в случае, если хоккеист ещё не совершил
+         ни одного действия. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getLastActionTick}
+\item{\vskip -1.9ex 
+\membername{getLastActionTick}
+{\tt public Integer {\bf getLastActionTick}(  )
+\label{l167}\label{l168}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает номер тика, в который хоккеист совершил своё последние действие ({\tt move.action}),
+         или {\tt null} ({\tt -1} в пакетах некоторых языков) в случае, если хоккеист ещё не совершил
+         ни одного действия. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOriginalPositionIndex}
+\item{\vskip -1.9ex 
+\membername{getOriginalPositionIndex}
+{\tt public int {\bf getOriginalPositionIndex}(  )
+\label{l169}\label{l170}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает индекс исходной позиции хоккеиста или {\tt -1} для вратаря или хоккеиста,
+         отдыхающего за пределами игрового поля. На эту позицию хоккеист будет помещён при разыгрывании шайбы.
+         При выполнении действия замена {\tt ActionType.SUBSTITUTE} индексы исходных позиций хоккеистов,
+         участвующих в замене, меняются местами. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPlayerId}
+\item{\vskip -1.9ex 
+\membername{getPlayerId}
+{\tt public long {\bf getPlayerId}(  )
+\label{l171}\label{l172}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор игрока, в команду которого входит хоккеист. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingCooldownTicks}
+{\tt public int {\bf getRemainingCooldownTicks}(  )
+\label{l173}\label{l174}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество тиков, по прошествии которого хоккеист сможет совершить какое-либо
+         действие ({\tt move.action}), или {\tt 0}, если хоккеист может совершить действие в данный тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingKnockdownTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingKnockdownTicks}
+{\tt public int {\bf getRemainingKnockdownTicks}(  )
+\label{l175}\label{l176}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество тиков, по прошествии которого хоккеист восстановится после падения,
+         или {\tt 0}, если хоккеист не сбит с ног. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStamina}
+\item{\vskip -1.9ex 
+\membername{getStamina}
+{\tt public double {\bf getStamina}(  )
+\label{l177}\label{l178}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее значение выносливости. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getState}
+\item{\vskip -1.9ex 
+\membername{getState}
+{\tt public HockeyistState {\bf getState}(  )
+\label{l179}\label{l180}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает состояние хоккеиста. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrength}
+\item{\vskip -1.9ex 
+\membername{getStrength}
+{\tt public int {\bf getStrength}(  )
+\label{l181}\label{l182}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает значение атрибута сила. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSwingTicks}
+\item{\vskip -1.9ex 
+\membername{getSwingTicks}
+{\tt public int {\bf getSwingTicks}(  )
+\label{l183}\label{l184}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Для хоккеиста, находящегося в состоянии замаха ({\tt HockeyistState.SWINGING}),
+         возвращает количество тиков, прошедших от начала замаха. В противном случае возвращает {\tt 0}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTeammateIndex}
+\item{\vskip -1.9ex 
+\membername{getTeammateIndex}
+{\tt public int {\bf getTeammateIndex}(  )
+\label{l185}\label{l186}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает 0-индексированный номер хоккеиста в команде. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public HockeyistType {\bf getType}(  )
+\label{l187}\label{l188}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает тип хоккеиста. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isTeammate}
+\item{\vskip -1.9ex 
+\membername{isTeammate}
+{\tt public boolean {\bf isTeammate}(  )
+\label{l189}\label{l190}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true}, если и только если данный хоккеист входит в команду вашего игрока. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l8}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+         Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+         данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+         данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngularSpeed}
+\item{\vskip -1.9ex 
+\membername{getAngularSpeed}
+{\tt public double {\bf getAngularSpeed}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость вращения объекта.
+         Положительные значения соответствуют вращению по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMass}
+\item{\vskip -1.9ex 
+\membername{getMass}
+{\tt public double {\bf getMass}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает массу объекта в единицах массы. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRadius}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена свеху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена свеху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{HockeyistState}{l3}{%
+{\small Состояние хоккеиста.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+HockeyistState}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final HockeyistState ACTIVE\begin{itemize}\item{\vskip -.9ex Хоккеист находится на игровом поле.}\end{itemize}
+}
+\item{
+public static final HockeyistState SWINGING\begin{itemize}\item{\vskip -.9ex Хоккеист находится на игровом поле и делает замах клюшкой.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Во время замаха стратегия не может управлять движением хоккеиста, а из действий доступны только
+ {\tt ActionType.STRIKE} и {\tt ActionType.CANCEL\_STRIKE}.}\end{itemize}
+}
+\item{
+public static final HockeyistState KNOCKED\_DOWN\begin{itemize}\item{\vskip -.9ex Хоккеист находится на игровом поле, но сбит с ног.
+ Стратегия игрока не может им управлять.}\end{itemize}
+}
+\item{
+public static final HockeyistState RESTING\begin{itemize}\item{\vskip -.9ex Хоккеист отдыхает вне игрового поля.
+ Стратегия игрока не может им управлять.}\end{itemize}
+}
+\end{itemize}
+}
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static HockeyistState {\bf valueOf}( {\tt String } {\bf name} )
+\label{l191}\label{l192}}%end signature
+}%end item
+\divideents{values}
+\item{\vskip -1.9ex 
+\membername{values}
+{\tt public static HockeyistState[] {\bf values}(  )
+\label{l193}\label{l194}}%end signature
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l14}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{HockeyistType}{l4}{%
+{\small Тип хоккеиста.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ В Раунде 1 чемпионата стратегия игрока управляет двумя хоккеистами-универсалами ({\tt VERSATILE}).
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ В Раунде 2 команда состоит из одного {\tt VERSATILE}, одного {\tt FORWARD} и одного {\tt DEFENCEMAN}.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ В Групповом отборе и Финале у игрока в распоряжении имеется шесть хоккеистов типа {\tt RANDOM},
+ однако одновременно в игре могут участвовать только трое из них. Остальные должны находиться на скамейке запасных.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+HockeyistType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final HockeyistType GOALIE\begin{itemize}\item{\vskip -.9ex Вратарь.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Автоматически управляемый хоккеист. Самостоятельно перемещается вдоль вертикального отрезка,
+ расположенного перед воротами. Старается держаться на одной горизонтальной линии с шайбой.
+ Скорость вратаря ограничена значением {\tt game.goalieMaxSpeed}.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Вратарь единственный среди хоккеистов взаимодействует с шайбой напрямую (как физический объект).}\end{itemize}
+}
+\item{
+public static final HockeyistType VERSATILE\begin{itemize}\item{\vskip -.9ex Хоккеист со сбалансированными параметрами.}\end{itemize}
+}
+\item{
+public static final HockeyistType FORWARD\begin{itemize}\item{\vskip -.9ex Нападающий.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Хоккеист, основным достоинством которого является сила удара.
+ Его слабой стороной является стойкость.}\end{itemize}
+}
+\item{
+public static final HockeyistType DEFENCEMAN\begin{itemize}\item{\vskip -.9ex Защитник.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Хоккеист, основным достоинством которого является стойкость.
+ Его слабой стороной является точность удара.}\end{itemize}
+}
+\item{
+public static final HockeyistType RANDOM\begin{itemize}\item{\vskip -.9ex Хоккеист со случайными параметрами.}\end{itemize}
+}
+\end{itemize}
+}
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static HockeyistType {\bf valueOf}( {\tt String } {\bf name} )
+\label{l195}\label{l196}}%end signature
+}%end item
+\divideents{values}
+\item{\vskip -1.9ex 
+\membername{values}
+{\tt public static HockeyistType[] {\bf values}(  )
+\label{l197}\label{l198}}%end signature
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l14}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Move}{l5}{%
+{\small Стратегия игрока может управлять хоккеистом посредством установки свойств объекта данного класса.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Move}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Move}
+% {\tt public {\bf Move}(  )
+% \label{l199}\label{l200}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAction}
+{\tt public ActionType {\bf getAction}(  )
+\label{l201}\label{l202}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее действие хоккеиста. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPassAngle}
+\item{\vskip -1.9ex 
+\membername{getPassAngle}
+{\tt public double {\bf getPassAngle}(  )
+\label{l203}\label{l204}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее направление паса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPassPower}
+\item{\vskip -1.9ex 
+\membername{getPassPower}
+{\tt public double {\bf getPassPower}(  )
+\label{l205}\label{l206}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущую силу паса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedUp}
+\item{\vskip -1.9ex 
+\membername{getSpeedUp}
+{\tt public double {\bf getSpeedUp}(  )
+\label{l207}\label{l208}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее ускорение хоккеиста. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTeammateIndex}
+\item{\vskip -1.9ex 
+\membername{getTeammateIndex}
+{\tt public int {\bf getTeammateIndex}(  )
+\label{l209}\label{l210}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущий индекс хоккеиста, на которого будет произведена замена,
+         или {\tt -1}, если хоккеист не был указан. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTurn}
+\item{\vskip -1.9ex 
+\membername{getTurn}
+{\tt public double {\bf getTurn}(  )
+\label{l211}\label{l212}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущий угол поворота хоккеиста. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{setAction}
+\item{\vskip -1.9ex 
+\membername{setAction}
+{\tt public void {\bf setAction}( {\tt ActionType } {\bf action} )
+\label{l213}\label{l214}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает действие хоккеиста.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setPassAngle}
+\item{\vskip -1.9ex 
+\membername{setPassAngle}
+{\tt public void {\bf setPassAngle}( {\tt double } {\bf passAngle} )
+\label{l215}\label{l216}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает направление паса ({\tt ActionType.PASS}).
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Направление паса задаётся в радианах относительно текущего направления хоккеиста
+ и должно лежать в интервале от {\tt -0.5 * game.passSector} до {\tt 0.5 * game.passSector}.
+ Значения, выходящие за указанный интервал, будут приведены к ближайшей его границе.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setPassPower}
+\item{\vskip -1.9ex 
+\membername{setPassPower}
+{\tt public void {\bf setPassPower}( {\tt double } {\bf passPower} )
+\label{l217}\label{l218}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает силу паса ({\tt ActionType.PASS}).
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Сила паса является относительной величиной и должна лежать в интервале от {\tt 0.0} до {\tt 1.0}.
+ Значения, выходящие за указанный интервал, будут приведены к ближайшей его границе.
+ К значению реальной силы паса применяется также поправочный коэффициент {\tt game.passPowerFactor}.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setSpeedUp}
+\item{\vskip -1.9ex 
+\membername{setSpeedUp}
+{\tt public void {\bf setSpeedUp}( {\tt double } {\bf speedUp} )
+\label{l219}\label{l220}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает ускорение хоккеиста.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Ускорение является относительным и должно лежать в интервале от {\tt -1.0} до {\tt 1.0}.
+ Значения, выходящие за указанный интервал, будут приведены к ближайшей его границе.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setTeammateIndex}
+\item{\vskip -1.9ex 
+\membername{setTeammateIndex}
+{\tt public void {\bf setTeammateIndex}( {\tt int } {\bf teammateIndex} )
+\label{l221}\label{l222}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает индекс хоккеиста для выполнения замены ({\tt ActionType.SUBSTITUTE}).
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Индексация начинается с нуля. Значением по умолчанию является {\tt -1}.
+ Если в команде игрока не существует хоккеиста с указанным индексом, то замена произведена не будет.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setTurn}
+\item{\vskip -1.9ex 
+\membername{setTurn}
+{\tt public void {\bf setTurn}( {\tt double } {\bf turn} )
+\label{l223}\label{l224}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает угол поворота хоккеиста.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Угол поворота задаётся в радианах относительно текущего направления хоккеиста и для хоккеиста
+ с базовым значением атрибута подвижность и максимальным запасом выносливости ограничен
+ интервалом от {\tt -game.hockeyistTurnAngleFactor} до {\tt game.hockeyistTurnAngleFactor}.
+ Значения, выходящие за указанный интервал, будут приведены к ближайшей его границе.
+ Положительные значения соответствуют повороту по часовой стрелке.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Player}{l6}{%
+{\small Содержит данные о текущем состоянии игрока.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Player}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Player}
+% {\tt public {\bf Player}( {\tt long } {\bf id},
+% {\tt boolean } {\bf me},
+% {\tt String } {\bf name},
+% {\tt int } {\bf goalCount},
+% {\tt boolean } {\bf strategyCrashed},
+% {\tt double } {\bf netTop},
+% {\tt double } {\bf netLeft},
+% {\tt double } {\bf netBottom},
+% {\tt double } {\bf netRight},
+% {\tt double } {\bf netFront},
+% {\tt double } {\bf netBack},
+% {\tt boolean } {\bf justScoredGoal},
+% {\tt boolean } {\bf justMissedGoal} )
+% \label{l225}\label{l226}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getGoalCount}
+{\tt public int {\bf getGoalCount}(  )
+\label{l227}\label{l228}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество шайб, заброшенных хоккеистами данного игрока в сетку противника.
+         Шайбы, заброшенные во время состояния вне игры, не влияют на этот счётчик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+\label{l229}\label{l230}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор игрока. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getName}
+\item{\vskip -1.9ex 
+\membername{getName}
+{\tt public String {\bf getName}(  )
+\label{l231}\label{l232}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает имя игрока. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getNetBack}
+\item{\vskip -1.9ex 
+\membername{getNetBack}
+{\tt public double {\bf getNetBack}(  )
+\label{l233}\label{l234}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсциссу дальней от вратаря вертикальной границы ворот.
+         Соответствует одному из значений {\tt netLeft} или {\tt netRight}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getNetBottom}
+\item{\vskip -1.9ex 
+\membername{getNetBottom}
+{\tt public double {\bf getNetBottom}(  )
+\label{l235}\label{l236}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ординату нижней штанги ворот. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getNetFront}
+\item{\vskip -1.9ex 
+\membername{getNetFront}
+{\tt public double {\bf getNetFront}(  )
+\label{l237}\label{l238}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсциссу ближайшей к вратарю вертикальной границы ворот.
+         Соответствует одному из значений {\tt netLeft} или {\tt netRight}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getNetLeft}
+\item{\vskip -1.9ex 
+\membername{getNetLeft}
+{\tt public double {\bf getNetLeft}(  )
+\label{l239}\label{l240}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсциссу левой границы ворот. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getNetRight}
+\item{\vskip -1.9ex 
+\membername{getNetRight}
+{\tt public double {\bf getNetRight}(  )
+\label{l241}\label{l242}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсциссу правой границы ворот. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getNetTop}
+\item{\vskip -1.9ex 
+\membername{getNetTop}
+{\tt public double {\bf getNetTop}(  )
+\label{l243}\label{l244}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ординату верхней штанги ворот. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isJustMissedGoal}
+\item{\vskip -1.9ex 
+\membername{isJustMissedGoal}
+{\tt public boolean {\bf isJustMissedGoal}(  )
+\label{l245}\label{l246}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true} в том и только в том случае, если игрок только что пропустил гол.
+         
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+         Вместе с установленным флагом {\tt justScoredGoal} другого игрока означает,
+         что сейчас состояние вне игры и новые голы не будут засчитаны.
+         Длительность состояния вне игры составляет {\tt game.afterGoalStateTickCount} тиков. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isJustScoredGoal}
+\item{\vskip -1.9ex 
+\membername{isJustScoredGoal}
+{\tt public boolean {\bf isJustScoredGoal}(  )
+\label{l247}\label{l248}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true} в том и только в том случае, если игрок только что забил гол.
+         
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+         Вместе с установленным флагом {\tt justMissedGoal} другого игрока означает,
+         что сейчас состояние вне игры и новые голы не будут засчитаны.
+         Длительность состояния вне игры составляет {\tt game.afterGoalStateTickCount} тиков. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isMe}
+\item{\vskip -1.9ex 
+\membername{isMe}
+{\tt public boolean {\bf isMe}(  )
+\label{l249}\label{l250}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true} в том и только в том случае, если этот игрок ваш. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isStrategyCrashed}
+\item{\vskip -1.9ex 
+\membername{isStrategyCrashed}
+{\tt public boolean {\bf isStrategyCrashed}(  )
+\label{l251}\label{l252}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает специальный флаг --- показатель того, что стратегия игрока \textless \textless упала\textgreater \textgreater .
+         Более подробную информацию можно найти в документации к игре. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Puck}{l7}{%
+{\small Класс, определяющий хоккейную шайбу. Содержит также все свойства юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Puck}}
+\noindent\hbox{\vbox{{\bf extends} Unit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Puck}
+% {\tt public {\bf Puck}( {\tt long } {\bf id},
+% {\tt double } {\bf mass},
+% {\tt double } {\bf radius},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt long } {\bf ownerHockeyistId},
+% {\tt long } {\bf ownerPlayerId} )
+% \label{l253}\label{l254}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getOwnerHockeyistId}
+{\tt public long {\bf getOwnerHockeyistId}(  )
+\label{l255}\label{l256}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор хоккеиста, контролирующего шайбу, или {\tt -1}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOwnerPlayerId}
+\item{\vskip -1.9ex 
+\membername{getOwnerPlayerId}
+{\tt public long {\bf getOwnerPlayerId}(  )
+\label{l257}\label{l258}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор игрока, контролирующего шайбу, или {\tt -1}. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l8}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+         Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+         данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+         данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngularSpeed}
+\item{\vskip -1.9ex 
+\membername{getAngularSpeed}
+{\tt public double {\bf getAngularSpeed}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость вращения объекта.
+         Положительные значения соответствуют вращению по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMass}
+\item{\vskip -1.9ex 
+\membername{getMass}
+{\tt public double {\bf getMass}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает массу объекта в единицах массы. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRadius}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена свеху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена свеху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Unit}{l8}{%
+{\small Базовый класс для определения объектов (\textless \textless юнитов\textgreater \textgreater ) на игровом поле.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public abstract 
+class 
+Unit}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Unit}
+% {\tt protected {\bf Unit}( {\tt long } {\bf id},
+% {\tt double } {\bf mass},
+% {\tt double } {\bf radius},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt double } {\bf angularSpeed} )
+% \label{l259}\label{l260}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+\label{l261}\label{l262}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+         Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+\label{l263}\label{l264}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+         данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+\label{l265}\label{l266}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+         данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngularSpeed}
+\item{\vskip -1.9ex 
+\membername{getAngularSpeed}
+{\tt public double {\bf getAngularSpeed}(  )
+\label{l267}\label{l268}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость вращения объекта.
+         Положительные значения соответствуют вращению по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+\label{l269}\label{l270}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+\label{l271}\label{l272}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+\label{l273}\label{l274}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMass}
+\item{\vskip -1.9ex 
+\membername{getMass}
+{\tt public double {\bf getMass}(  )
+\label{l275}\label{l276}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает массу объекта в единицах массы. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRadius}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+\label{l277}\label{l278}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+\label{l279}\label{l280}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+\label{l281}\label{l282}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена свеху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+\label{l283}\label{l284}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+\label{l285}\label{l286}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена свеху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{World}{l9}{%
+{\small Этот класс описывает игровой мир. Содержит также описания всех игроков и игровых объектов (\textless \textless юнитов\textgreater \textgreater ).}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+World}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{World}
+% {\tt public {\bf World}( {\tt int } {\bf tick},
+% {\tt int } {\bf tickCount},
+% {\tt double } {\bf width},
+% {\tt double } {\bf height},
+% {\tt Player[]} {\bf players},
+% {\tt Hockeyist[]} {\bf hockeyists},
+% {\tt Puck } {\bf puck} )
+% \label{l287}\label{l288}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getHeight}
+{\tt public double {\bf getHeight}(  )
+\label{l289}\label{l290}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает высоту мира. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHockeyists}
+\item{\vskip -1.9ex 
+\membername{getHockeyists}
+{\tt public Hockeyist[] {\bf getHockeyists}(  )
+\label{l291}\label{l292}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список хоккеистов (в случайном порядке), включая вратарей и хоккеиста стратегии,
+         вызвавшей этот метод. После каждого тика объекты, задающие хоккеистов, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMyPlayer}
+\item{\vskip -1.9ex 
+\membername{getMyPlayer}
+{\tt public Player {\bf getMyPlayer}(  )
+\label{l293}\label{l294}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает вашего игрока. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOpponentPlayer}
+\item{\vskip -1.9ex 
+\membername{getOpponentPlayer}
+{\tt public Player {\bf getOpponentPlayer}(  )
+\label{l295}\label{l296}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает игрока, соревнующегося с вами. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPlayers}
+\item{\vskip -1.9ex 
+\membername{getPlayers}
+{\tt public Player[] {\bf getPlayers}(  )
+\label{l297}\label{l298}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список игроков (в случайном порядке).
+         После каждого тика объекты, задающие игроков, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPuck}
+\item{\vskip -1.9ex 
+\membername{getPuck}
+{\tt public Puck {\bf getPuck}(  )
+\label{l299}\label{l300}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает шайбу. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTick}
+\item{\vskip -1.9ex 
+\membername{getTick}
+{\tt public int {\bf getTick}(  )
+\label{l301}\label{l302}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает номер текущего тика. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTickCount}
+\item{\vskip -1.9ex 
+\membername{getTickCount}
+{\tt public int {\bf getTickCount}(  )
+\label{l303}\label{l304}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовую длительность игры в тиках.
+         Реальная длительность может отличаться от этого значения в большую сторону. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWidth}
+\item{\vskip -1.9ex 
+\membername{getWidth}
+{\tt public double {\bf getWidth}(  )
+\label{l305}\label{l306}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ширину мира. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+}
+}
+\newpage
+\def\packagename{\textless none\textgreater }
+\chapter{\bf Package \textless none\textgreater }{
+\vskip -.25in
+\hbox to \hsize{\it Package Contents\hfil Page}
+\rule{\hsize}{.7mm}
+\vskip .13in
+\hbox{\bf Interfaces}
+\entityintro{Strategy}{l307}{Стратегия --- интерфейс, содержащий описание методов искусственного интеллекта хоккеиста.}
+\vskip .1in
+\rule{\hsize}{.7mm}
+\vskip .1in
+\newpage
+\section{Interfaces}{
+\startsection{Interface}{Strategy}{l307}{%
+{\small Стратегия --- интерфейс, содержащий описание методов искусственного интеллекта хоккеиста.
+ Каждая пользовательская стратегия должна реализовывать этот интерфейс.
+ Может отсутствовать в некоторых языковых пакетах, если язык не поддерживает интерфейсы.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public interface 
+Strategy}}
+}}}
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{move}
+{\tt public void {\bf move}( {\tt Hockeyist } {\bf self},
+{\tt World } {\bf world},
+{\tt Game } {\bf game},
+{\tt Move } {\bf move} )
+\label{l308}\label{l309}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Основной метод стратегии, осуществляющий управление хоккеистом.
+ Вызывается каждый тик для каждого хоккеиста.
+}%end item
+  \end{itemize}
+}
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt self} - Хоккеист, которым данный метод будет осуществлять управление.}
+   \item{
+\sld
+{\tt world} - Текущее состояние мира.}
+   \item{
+\sld
+{\tt game} - Различные игровые константы.}
+   \item{
+\sld
+{\tt move} - Результатом работы метода является изменение полей данного объекта.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+}
+}
+\end{document}
