@@ -14,12 +14,14 @@
 \usepackage[unicode]{hyperref}
 \usepackage{listings}
 \usepackage{literat}
-\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
 \usepackage[top = 2.0cm]{geometry}
-\usepackage[T2A]{fontenc}
-\usepackage[T1]{fontenc}
+\usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
+
+\input glyphtounicode
+\pdfgentounicode=1
 
 \setlength{\skip\footins}{0.5cm}
 \setlength{\footnotesep}{0.5cm}
@@ -115,14 +117,14 @@
 % Replaced by DocsPostProcessor:
 % \title{DoNotModifyTitleHere}
 \title{
-\includegraphics{images/raic-2013-logo-white-400x150.eps}\\
+\includegraphics{images/raic-2013-logo-white-400x150.png}\\
 \vspace{0.50in}
 \textsc{\Huge CodeHockey 2014}\\
 \vspace{0.50in}
 \textsc{\LARGE Правила}\\
-\textsc{\small Версия 1.0}\\
+\textsc{\small Версия 1.0.2}\\
 \vspace{2.75in}
-\includegraphics{images/mail-ru-and-ssu-logo.eps}
+\includegraphics{images/mail-ru-and-ssu-logo.png}
 }
 % \\ Replaced by DocsPostProcessor.
 
@@ -962,7 +964,15 @@ Game}}
 \begin{itemize}
 \sld
 \item{{\bf Returns} - 
-Возвращает базовый шанс подобрать шайбу, не контролируемую другим хоккеистом.
+Возвращает шанс подобрать шайбу, не контролируемую другим хоккеистом, без учёта влияния атрибутов
+         хоккеиста и скорости шайбы. Равен шансу подобрать шайбу в случае, когда влияющие на действие атрибуты
+         хоккеиста равны {\tt hockeyistAttributeBaseValue}, а шайба двигается со скоростью
+         {\tt struckPuckInitialSpeedFactor}.
+         
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
          Максимальный из атрибутов ловкость и подвижность хоккеиста увеличивает шанс на захват.
          Скорость шайбы уменьшает шанс на захват. 
 }%end item
@@ -1250,6 +1260,11 @@ Game}}
 \sld
 \item{{\bf Returns} - 
 Возвращает базовый шанс отнять шайбу у другого хоккеиста.
+         
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
          Максимальный из атрибутов сила и ловкость хоккеиста, отнимающего шайбу, увеличивает шанс на захват.
          Максимальный из атрибутов стойкость и подвижность текущего владельца шайбы уменьшает шанс на её потерю. 
 }%end item

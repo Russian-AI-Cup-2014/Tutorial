@@ -1,9 +1,13 @@
 call wipe.bat
 
-latex JavaDocs.tex
-latex JavaDocs.tex
-dvips -t a4 JavaDocs.dvi
-ps2pdf JavaDocs.ps
+pdflatex JavaDocs.tex
+pdflatex JavaDocs.tex
+
+rem Deprecated:
+rem latex JavaDocs.tex
+rem latex JavaDocs.tex
+rem dvips -t a4 JavaDocs.dvi
+rem ps2pdf JavaDocs.ps
 
 call wipe.exceptpdf.bat
 ren JavaDocs.pdf Tutorial.pdf
